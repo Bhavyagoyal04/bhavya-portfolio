@@ -179,20 +179,38 @@ export function Stats() {
               </button>
             ))}
           </div>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div key={active} className="mt-6 flex flex-wrap gap-3">
             {CATEGORIES[active].items.map((item, i) => (
               <div
                 key={item}
-                className="group relative rounded-xl border border-border bg-card px-4 py-3 text-sm font-medium transition hover:-translate-y-1 hover:border-[var(--electric)]"
+                className="skill-pill group relative overflow-hidden rounded-xl border border-border bg-card px-4 py-3 text-sm font-medium"
                 style={{
-                  animation: `reveal-up 0.4s ease-out ${i * 0.04}s both`,
+                  animation: `pill-in 0.5s cubic-bezier(0.2,0.8,0.2,1) ${i * 0.05}s both`,
                 }}
               >
-                <span className="relative z-10">{item}</span>
-                <span className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--electric)]/10 to-[var(--neon)]/10 opacity-0 transition group-hover:opacity-100" />
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                  {item}
+                </span>
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[var(--electric)] to-[var(--neon)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </div>
             ))}
           </div>
+
+          {/* Infinite marquee of core tech */}
+          <div className="pause-on-hover mt-12 relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="marquee-track flex w-max gap-3">
+              {[...CATEGORIES.flatMap((c) => c.items), ...CATEGORIES.flatMap((c) => c.items)].map((t, i) => (
+                <span
+                  key={i}
+                  className="whitespace-nowrap rounded-full border border-border bg-card/60 px-4 py-2 text-xs font-medium text-muted-foreground backdrop-blur-sm"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </section>
