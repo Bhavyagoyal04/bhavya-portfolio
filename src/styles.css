@@ -160,6 +160,20 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes pill-in {
+  0% { opacity: 0; transform: translateY(12px) scale(0.9); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.skill-pill {
+  transition: transform 0.35s cubic-bezier(0.2,0.8,0.2,1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.skill-pill:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: transparent;
+  box-shadow: 0 10px 30px -10px color-mix(in oklab, var(--electric) 60%, transparent);
+}
+
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
