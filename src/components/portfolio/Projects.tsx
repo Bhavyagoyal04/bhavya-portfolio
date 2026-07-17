@@ -43,7 +43,7 @@ const MINOR = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative px-6 py-24">
+    <section id="projects" className="relative px-6 pt-24">
       <div className="mx-auto max-w-6xl">
         <div className="mb-14 max-w-2xl">
           <div className="text-sm font-mono uppercase tracking-widest text-[var(--electric)]">
@@ -52,58 +52,75 @@ export function Projects() {
           <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
             Projects with <span className="text-gradient">real users</span>.
           </h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Scroll — each project stacks on the last.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {/* Sticky stacked cards */}
+        <div className="relative">
           {FEATURED.map((p, i) => (
-            <SpotlightCard
+            <div
               key={p.title}
-              glowColor={p.glow}
-              className="rounded-2xl border border-border bg-card"
+              className="sticky-card"
+              style={{
+                top: `calc(12vh + ${i * 28}px)`,
+                zIndex: 10 + i,
+                marginBottom: i === FEATURED.length - 1 ? 0 : "18vh",
+              }}
             >
-              <article
-                className="shine-on-hover relative overflow-hidden rounded-2xl p-7"
-                style={{ animation: `reveal-up 0.6s ease-out ${i * 0.08}s both` }}
+              <SpotlightCard
+                glowColor={p.glow}
+                className="rounded-3xl border border-border bg-card shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div
-                    className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[var(--electric)] to-[var(--neon)] text-white shadow-[0_0_20px_var(--electric)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
-                    style={{ transform: "translateZ(40px)" }}
-                  >
-                    <p.icon className="h-5 w-5" />
-                  </div>
-                  <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[var(--electric)]" />
-                </div>
-
-                <div className="mt-6 text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                  {p.tag}
-                </div>
-                <h3
-                  className="mt-2 text-2xl font-semibold transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--electric)] group-hover:to-[var(--neon)]"
-                  style={{ transform: "translateZ(30px)" }}
+                <article
+                  className="shine-on-hover relative overflow-hidden rounded-3xl p-8 sm:p-10"
                 >
-                  {p.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {p.desc}
-                </p>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[var(--electric)] to-[var(--neon)] text-white shadow-[0_0_30px_var(--electric)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+                        style={{ transform: "translateZ(40px)" }}
+                      >
+                        <p.icon className="h-6 w-6" />
+                      </div>
+                      <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                        {String(i + 1).padStart(2, "0")} / {String(FEATURED.length).padStart(2, "0")}
+                      </div>
+                    </div>
+                    <ArrowUpRight className="h-6 w-6 text-muted-foreground transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[var(--electric)]" />
+                  </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--electric)] hover:text-foreground"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            </SpotlightCard>
+                  <div className="mt-8 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                    {p.tag}
+                  </div>
+                  <h3
+                    className="mt-2 text-3xl sm:text-4xl font-semibold transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--electric)] group-hover:to-[var(--neon)]"
+                    style={{ transform: "translateZ(30px)" }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                    {p.desc}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {p.stack.map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--electric)] hover:text-foreground"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </SpotlightCard>
+            </div>
           ))}
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="mt-24 grid grid-cols-1 gap-5 sm:grid-cols-2 pb-24">
           {MINOR.map((m, i) => (
             <div
               key={m.title}
