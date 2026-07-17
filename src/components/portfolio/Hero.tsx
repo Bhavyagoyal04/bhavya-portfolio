@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { MagneticButton } from "./MagneticButton";
+import { TypeCycle } from "./TypeCycle";
+
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -55,29 +58,39 @@ export function Hero() {
         </h1>
 
         <p
-          className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl md:text-2xl animate-reveal"
+          className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl md:text-2xl animate-reveal"
           style={{ animationDelay: "0.3s" }}
         >
-          Building high-performance full-stack applications, microservices, and
-          real-time systems.
+          Building{" "}
+          <TypeCycle
+            className="font-semibold text-foreground"
+            words={[
+              "high-performance full-stack apps",
+              "real-time WebRTC systems",
+              "Spring Boot microservices",
+              "AI-powered platforms",
+            ]}
+          />
         </p>
+
 
         <div
           className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-reveal"
           style={{ animationDelay: "0.45s" }}
         >
-          <a
+          <MagneticButton
             href="#projects"
-            className="btn-glow inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
+            className="btn-glow shine-on-hover inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
           >
             View My Work <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
+          </MagneticButton>
+          <MagneticButton
             href="#contact"
             className="glow-border inline-flex items-center gap-2 rounded-full bg-card/60 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-sm transition hover:bg-card"
           >
             Get In Touch
-          </a>
+          </MagneticButton>
+
         </div>
 
         <div

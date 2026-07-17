@@ -73,10 +73,23 @@ export function Contact() {
           </label>
           <button
             type="submit"
-            className="btn-glow mt-6 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
+            onClick={(e) => {
+              const btn = e.currentTarget;
+              const rect = btn.getBoundingClientRect();
+              const r = document.createElement("span");
+              const size = Math.max(rect.width, rect.height);
+              r.className = "ripple";
+              r.style.width = r.style.height = `${size}px`;
+              r.style.left = `${e.clientX - rect.left - size / 2}px`;
+              r.style.top = `${e.clientY - rect.top - size / 2}px`;
+              btn.appendChild(r);
+              setTimeout(() => r.remove(), 700);
+            }}
+            className="btn-glow shine-on-hover relative overflow-hidden mt-6 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
           >
             {sent ? "Sent! I'll reply soon." : (<>Send message <Send className="h-4 w-4" /></>)}
           </button>
+
 
           <div className="mt-8 flex flex-wrap gap-6 border-t border-border pt-6 text-sm text-muted-foreground">
             <a

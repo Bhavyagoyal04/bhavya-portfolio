@@ -1,4 +1,6 @@
 import { Award, Trophy, HeartHandshake } from "lucide-react";
+import { SpotlightCard } from "./SpotlightCard";
+
 
 const CERTS = [
   "AWS Cloud Quest: Cloud Practitioner",
@@ -44,39 +46,44 @@ export function Achievements() {
       </div>
 
       <div className="mx-auto mt-14 grid max-w-6xl grid-cols-1 gap-5 px-6 md:grid-cols-2">
-        <div className="glow-border rounded-2xl bg-card p-6">
-          <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-to-br from-[var(--electric)] to-[var(--neon)] text-white">
-              <Trophy className="h-5 w-5" />
-            </div>
-            <div>
-              <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                Hackathon
+        <SpotlightCard className="rounded-2xl border border-border bg-card" glowColor="var(--electric)">
+          <div className="shine-on-hover rounded-2xl p-6">
+            <div className="flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-to-br from-[var(--electric)] to-[var(--neon)] text-white transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                <Trophy className="h-5 w-5" />
               </div>
-              <div className="font-semibold">Smart India Hackathon 2025</div>
-            </div>
-          </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Built <span className="text-foreground">EDUBhasha</span>, a multilingual
-            chatbot designed to bridge language barriers in education.
-          </p>
-        </div>
-        <div className="glow-border rounded-2xl bg-card p-6">
-          <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-to-br from-[var(--neon)] to-[var(--electric)] text-white">
-              <HeartHandshake className="h-5 w-5" />
-            </div>
-            <div>
-              <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                Community
+              <div>
+                <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  Hackathon
+                </div>
+                <div className="font-semibold">Smart India Hackathon 2025</div>
               </div>
-              <div className="font-semibold">NGO Volunteer</div>
             </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Built <span className="text-foreground">EDUBhasha</span>, a multilingual
+              chatbot designed to bridge language barriers in education.
+            </p>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Volunteering with local NGOs on education & digital-literacy initiatives.
-          </p>
-        </div>
+        </SpotlightCard>
+        <SpotlightCard className="rounded-2xl border border-border bg-card" glowColor="var(--neon)">
+          <div className="shine-on-hover rounded-2xl p-6">
+            <div className="flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-lg bg-gradient-to-br from-[var(--neon)] to-[var(--electric)] text-white transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
+                <HeartHandshake className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                  Community
+                </div>
+                <div className="font-semibold">NGO Volunteer</div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Volunteering with local NGOs on education & digital-literacy initiatives.
+            </p>
+          </div>
+        </SpotlightCard>
+
       </div>
     </section>
   );
