@@ -304,3 +304,20 @@
     0 0 30px color-mix(in oklab, var(--electric) 40%, transparent),
     0 0 60px color-mix(in oklab, var(--neon) 30%, transparent);
 }
+
+/* Sticky stacked project cards */
+.sticky-card {
+  position: sticky;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: top center;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .sticky-card {
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
