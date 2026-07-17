@@ -191,3 +191,116 @@
   animation: gradient-shift 6s ease infinite;
 }
 .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* Spotlight card: cursor-follow radial + animated conic border */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--glow, var(--electric)) 22%, transparent),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight-card:hover::before { opacity: 1; }
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    var(--glow, var(--electric)) 20%,
+    var(--neon) 40%,
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: spin-slow 6s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+.spotlight-card:hover::after { opacity: 1; }
+.spotlight-card > * {
+  position: relative;
+  z-index: 3;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-slow {
+  to { --angle: 360deg; }
+}
+
+/* Aurora blob background */
+.aurora {
+  background:
+    radial-gradient(40% 60% at 20% 30%, color-mix(in oklab, var(--electric) 30%, transparent), transparent 60%),
+    radial-gradient(40% 60% at 80% 70%, color-mix(in oklab, var(--neon) 30%, transparent), transparent 60%),
+    radial-gradient(30% 40% at 60% 20%, color-mix(in oklab, var(--electric) 20%, transparent), transparent 60%);
+  filter: blur(60px);
+  animation: aurora-shift 14s ease-in-out infinite;
+}
+@keyframes aurora-shift {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  33% { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  66% { transform: translate3d(-3%, 2%, 0) scale(0.95); }
+}
+
+/* Ripple */
+@keyframes ripple-out {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+.ripple {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.5);
+  pointer-events: none;
+  animation: ripple-out 0.7s ease-out forwards;
+}
+
+/* Shine sweep */
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+.shine-on-hover { position: relative; overflow: hidden; }
+.shine-on-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+}
+.shine-on-hover:hover::before { animation: shine 0.9s ease-out; }
+
+/* Glow ring hover */
+.hover-ring {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.hover-ring:hover {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--electric) 60%, transparent),
+    0 0 30px color-mix(in oklab, var(--electric) 40%, transparent),
+    0 0 60px color-mix(in oklab, var(--neon) 30%, transparent);
+}
