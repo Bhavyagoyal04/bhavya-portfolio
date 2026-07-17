@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { MagneticButton } from "./MagneticButton";
+import { TypeCycle } from "./TypeCycle";
+
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -55,12 +58,21 @@ export function Hero() {
         </h1>
 
         <p
-          className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl md:text-2xl animate-reveal"
+          className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl md:text-2xl animate-reveal"
           style={{ animationDelay: "0.3s" }}
         >
-          Building high-performance full-stack applications, microservices, and
-          real-time systems.
+          Building{" "}
+          <TypeCycle
+            className="font-semibold text-foreground"
+            words={[
+              "high-performance full-stack apps",
+              "real-time WebRTC systems",
+              "Spring Boot microservices",
+              "AI-powered platforms",
+            ]}
+          />
         </p>
+
 
         <div
           className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-reveal"
