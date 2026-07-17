@@ -78,18 +78,19 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-reveal"
           style={{ animationDelay: "0.45s" }}
         >
-          <a
+          <MagneticButton
             href="#projects"
-            className="btn-glow inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
+            className="btn-glow shine-on-hover inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
           >
             View My Work <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
+          </MagneticButton>
+          <MagneticButton
             href="#contact"
             className="glow-border inline-flex items-center gap-2 rounded-full bg-card/60 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur-sm transition hover:bg-card"
           >
             Get In Touch
-          </a>
+          </MagneticButton>
+
         </div>
 
         <div
