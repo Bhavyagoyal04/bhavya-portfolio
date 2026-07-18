@@ -8,7 +8,8 @@ import { Achievements } from "@/components/portfolio/Achievements";
 import { Contact } from "@/components/portfolio/Contact";
 import { BackToTop } from "@/components/portfolio/BackToTop";
 import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
-
+import { Cursor } from "@/components/portfolio/Cursor";
+import { MarqueeDivider } from "@/components/portfolio/MarqueeDivider";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -16,7 +17,9 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground">
+      <div className="noise-overlay pointer-events-none fixed inset-0 z-[60]" />
+      <Cursor />
       <ScrollProgress />
       <Nav />
 
@@ -24,6 +27,7 @@ function Index() {
         <Hero />
         <Stats />
         <Timeline />
+        <MarqueeDivider />
         <Projects />
         <Achievements />
         <Contact />
