@@ -334,3 +334,62 @@
   html, body, a, button { cursor: none; }
 }
 
+/* Scroll-triggered reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  filter: blur(8px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Glitch text effect */
+@keyframes glitch-x {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 1px); }
+  40% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+  60% { clip-path: inset(30% 0 40% 0); transform: translate(-1px, 2px); }
+  80% { clip-path: inset(80% 0 5% 0); transform: translate(1px, -2px); }
+}
+.glitch { position: relative; display: inline-block; }
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.glitch:hover::before,
+.glitch:hover::after { opacity: 0.8; }
+.glitch::before {
+  color: var(--electric);
+  animation: glitch-x 1s infinite linear alternate-reverse;
+  mix-blend-mode: screen;
+}
+.glitch::after {
+  color: var(--neon);
+  animation: glitch-x 1.3s infinite linear alternate;
+  mix-blend-mode: screen;
+}
+
+/* Gradient border card variant */
+.gradient-frame {
+  position: relative;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, var(--electric), var(--neon), var(--electric)) border-box;
+  border: 1px solid transparent;
+  background-size: 100% 100%, 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+
