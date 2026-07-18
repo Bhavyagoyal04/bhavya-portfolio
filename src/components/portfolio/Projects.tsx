@@ -66,7 +66,7 @@ export function Projects() {
               style={{
                 top: `calc(12vh + ${i * 28}px)`,
                 zIndex: 10 + i,
-                marginBottom: i === FEATURED.length - 1 ? 0 : "18vh",
+                marginBottom: i === FEATURED.length - 1 ? 0 : "60vh",
               }}
             >
               <SpotlightCard
