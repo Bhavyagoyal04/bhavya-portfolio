@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Sparkles } from "lucide-react";
+import { SpotlightCard } from "./SpotlightCard";
 
 const ITEMS = [
   {
@@ -11,6 +11,7 @@ const ITEMS = [
       "Optimized the LMS backend, reducing API latency by 25%.",
     ],
     accent: "var(--electric)",
+    glow: "var(--electric)",
   },
   {
     company: "Universia Space Technology Pvt. Ltd.",
@@ -21,6 +22,7 @@ const ITEMS = [
       "Reduced overall page load time by 20% through targeted optimizations.",
     ],
     accent: "var(--neon)",
+    glow: "var(--neon)",
   },
   {
     company: "State Bank of India",
@@ -31,96 +33,85 @@ const ITEMS = [
       "Improved NPA identification efficiency by 25%.",
     ],
     accent: "var(--electric)",
+    glow: "var(--electric)",
   },
 ];
 
 export function Timeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeSet, setActiveSet] = useState<Set<number>>(new Set());
-
-  useEffect(() => {
-    const nodes = containerRef.current?.querySelectorAll("[data-idx]") ?? [];
-    const io = new IntersectionObserver(
-      (entries) => {
-        setActiveSet((prev) => {
-          const next = new Set(prev);
-          entries.forEach((e) => {
-            const idx = Number((e.target as HTMLElement).dataset.idx);
-            if (e.isIntersecting) next.add(idx);
-          });
-          return next;
-        });
-      },
-      { threshold: 0.5 },
-    );
-    nodes.forEach((n) => io.observe(n));
-    return () => io.disconnect();
-  }, []);
-
   return (
-    <section id="experience" className="relative px-6 py-24">
-      <div className="mx-auto max-w-5xl">
+    <section id="experience" className="relative px-6 pt-24">
+      <div className="mx-auto max-w-6xl">
         <div className="mb-14 max-w-2xl">
           <div className="text-sm font-mono uppercase tracking-widest text-[var(--neon)]">
             02 — Experience
           </div>
           <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
-            A trail of <span className="text-gradient">shipped</span> systems.
+            A trail of <span className="text-gradient animate-gradient">shipped</span> systems.
           </h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Scroll — each role stacks on the last.
+          </p>
         </div>
 
-        <div ref={containerRef} className="relative">
-          {/* Line */}
-          <div className="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-[var(--electric)] via-[var(--neon)] to-transparent md:left-1/2" />
-
-          <div className="space-y-14">
-            {ITEMS.map((item, i) => {
-              const active = activeSet.has(i);
-              return (
-                <div
-                  key={item.company}
-                  data-idx={i}
-                  className={`relative grid grid-cols-[minmax(0,1fr)] gap-6 md:grid-cols-2 md:gap-12 ${
-                    i % 2 === 0 ? "" : "md:[&>*:first-child]:col-start-2"
-                  }`}
-                >
-                  {/* Node */}
-                  <div
-                    className="absolute left-4 top-6 h-4 w-4 -translate-x-1/2 rounded-full border-2 transition-all duration-500 md:left-1/2"
-                    style={{
-                      borderColor: item.accent,
-                      background: active ? item.accent : "var(--background)",
-                      boxShadow: active ? `0 0 20px ${item.accent}` : "none",
-                    }}
-                  />
-
-                  <div
-                    className={`glow-border ml-12 rounded-2xl bg-card p-6 transition-all duration-700 md:ml-0 ${
-                      active ? "opacity-100 translate-y-0" : "opacity-40 translate-y-6"
-                    } ${i % 2 === 1 ? "md:col-start-1 md:row-start-1" : ""}`}
-                  >
-                    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-muted-foreground">
-                      <Briefcase className="h-3.5 w-3.5" />
+        <div className="relative">
+          {ITEMS.map((item, i) => (
+            <div
+              key={item.company}
+              className="sticky-card"
+              style={{
+                top: `calc(14vh + ${i * 28}px)`,
+                zIndex: 10 + i,
+                marginBottom: i === ITEMS.length - 1 ? 0 : "16vh",
+              }}
+            >
+              <SpotlightCard
+                glowColor={item.glow}
+                className="rounded-3xl border border-border bg-card shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]"
+              >
+                <article className="shine-on-hover relative overflow-hidden rounded-3xl p-8 sm:p-10">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[var(--electric)] to-[var(--neon)] text-white shadow-[0_0_30px_var(--electric)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+                        style={{ transform: "translateZ(40px)" }}
+                      >
+                        <Briefcase className="h-6 w-6" />
+                      </div>
+                      <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                        {String(i + 1).padStart(2, "0")} / {String(ITEMS.length).padStart(2, "0")}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-full border border-border bg-background/60 px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                      <Sparkles className="h-3 w-3" style={{ color: item.accent }} />
                       {item.period}
                     </div>
-                    <h3 className="mt-2 text-xl font-semibold">{item.company}</h3>
-                    <div className="text-sm text-muted-foreground">{item.role}</div>
-                    <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                      {item.points.map((p) => (
-                        <li key={p} className="flex gap-2">
-                          <span
-                            className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                            style={{ background: item.accent }}
-                          />
-                          <span>{p}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+
+                  <div className="mt-8 text-xs font-mono uppercase tracking-widest text-muted-foreground">
+                    {item.role}
+                  </div>
+                  <h3
+                    className="mt-2 text-3xl sm:text-4xl font-semibold transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[var(--electric)] group-hover:to-[var(--neon)]"
+                    style={{ transform: "translateZ(30px)" }}
+                  >
+                    {item.company}
+                  </h3>
+
+                  <ul className="mt-6 space-y-3 text-base text-muted-foreground">
+                    {item.points.map((p) => (
+                      <li key={p} className="flex gap-3">
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ background: item.accent, boxShadow: `0 0 12px ${item.accent}` }}
+                        />
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </SpotlightCard>
+            </div>
+          ))}
         </div>
       </div>
     </section>
