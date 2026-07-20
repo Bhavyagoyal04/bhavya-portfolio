@@ -61,7 +61,7 @@ export function Timeline() {
               style={{
                 top: `calc(14vh + ${i * 28}px)`,
                 zIndex: 10 + i,
-                marginBottom: i === ITEMS.length - 1 ? 0 : "60vh",
+                marginBottom: i === ITEMS.length - 1 ? "20vh" : "60vh",
               }}
             >
               <SpotlightCard
