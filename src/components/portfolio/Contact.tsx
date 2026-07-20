@@ -31,6 +31,7 @@ export function Contact() {
           onSubmit={(e) => {
             e.preventDefault();
             setSent(true);
+            window.dispatchEvent(new CustomEvent("portfolio:confetti"));
             setTimeout(() => setSent(false), 3000);
           }}
           className={`glow-border rounded-3xl bg-card p-6 sm:p-10 transition-all duration-700 ${
