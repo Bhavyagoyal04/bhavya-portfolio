@@ -36,10 +36,6 @@ const FEATURED = [
   },
 ];
 
-const MINOR = [
-  { title: "School Management System", icon: GraduationCap, tag: "Java · MySQL" },
-  { title: "Restaurant Finder", icon: UtensilsCrossed, tag: "React · APIs" },
-];
 
 export function Projects() {
   return (
