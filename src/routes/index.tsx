@@ -19,6 +19,8 @@ import { SectionRail } from "@/components/portfolio/SectionRail";
 import { PageLoader } from "@/components/portfolio/PageLoader";
 import { StatusDock } from "@/components/portfolio/StatusDock";
 import { ShortcutsHelp } from "@/components/portfolio/ShortcutsHelp";
+import { HintRotator } from "@/components/portfolio/HintRotator";
+import { ContributionGrid } from "@/components/portfolio/ContributionGrid";
 import { useEffect } from "react";
 
 export const Route = createFileRoute("/")({
@@ -67,6 +69,8 @@ function Index() {
         <Reveal><Stats /></Reveal>
         <Reveal><Timeline /></Reveal>
         <Reveal><Projects /></Reveal>
+        <Reveal><Projects /></Reveal>
+        <Reveal><ContributionGrid /></Reveal>
         <Reveal><Achievements /></Reveal>
         <Reveal><Contact /></Reveal>
       </main>
@@ -75,6 +79,7 @@ function Index() {
       <AccentSwitcher />
       <StatusDock />
       <ShortcutsHelp />
+      <HintRotator />
       <CommandPalette onConfetti={fire} />
       <Confetti triggerRef={confettiRef} />
     </div>
