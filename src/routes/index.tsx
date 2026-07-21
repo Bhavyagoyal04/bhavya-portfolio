@@ -73,6 +73,8 @@ function Index() {
 
       <BackToTop />
       <AccentSwitcher />
+      <StatusDock />
+      <ShortcutsHelp />
       <CommandPalette onConfetti={fire} />
       <Confetti triggerRef={confettiRef} />
     </div>
