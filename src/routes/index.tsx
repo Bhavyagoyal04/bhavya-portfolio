@@ -17,6 +17,8 @@ import { Confetti, type ConfettiHandle } from "@/components/portfolio/Confetti";
 import { AccentSwitcher } from "@/components/portfolio/AccentSwitcher";
 import { SectionRail } from "@/components/portfolio/SectionRail";
 import { PageLoader } from "@/components/portfolio/PageLoader";
+import { StatusDock } from "@/components/portfolio/StatusDock";
+import { ShortcutsHelp } from "@/components/portfolio/ShortcutsHelp";
 import { useEffect } from "react";
 
 export const Route = createFileRoute("/")({
