@@ -1,4 +1,4 @@
-import { ArrowUpRight, Video, Phone, FileText, Boxes, GraduationCap, UtensilsCrossed } from "lucide-react";
+import { ArrowUpRight, Video, Phone, FileText, Boxes } from "lucide-react";
 import { SpotlightCard } from "./SpotlightCard";
 
 const FEATURED = [
@@ -36,10 +36,6 @@ const FEATURED = [
   },
 ];
 
-const MINOR = [
-  { title: "School Management System", icon: GraduationCap, tag: "Java · MySQL" },
-  { title: "Restaurant Finder", icon: UtensilsCrossed, tag: "React · APIs" },
-];
 
 export function Projects() {
   return (
@@ -120,24 +116,8 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="mt-24 grid grid-cols-1 gap-5 sm:grid-cols-2 pb-24">
-          {MINOR.map((m, i) => (
-            <div
-              key={m.title}
-              className="hover-ring shine-on-hover group flex items-center gap-4 rounded-2xl border border-border bg-card/50 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-card"
-              style={{ animation: `reveal-up 0.6s ease-out ${(i + 4) * 0.08}s both` }}
-            >
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-secondary text-[var(--electric)] transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
-                <m.icon className="h-5 w-5" />
-              </div>
-              <div className="min-w-0">
-                <div className="truncate font-medium">{m.title}</div>
-                <div className="text-xs text-muted-foreground">{m.tag}</div>
-              </div>
-              <ArrowUpRight className="ml-auto h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--electric)]" />
-            </div>
-          ))}
-        </div>
+        <div className="pb-24" />
+
       </div>
     </section>
   );
