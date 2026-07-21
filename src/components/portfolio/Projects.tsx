@@ -1,4 +1,4 @@
-import { ArrowUpRight, Video, Phone, FileText, Boxes, GraduationCap, UtensilsCrossed } from "lucide-react";
+import { ArrowUpRight, Video, Phone, FileText, Boxes } from "lucide-react";
 import { SpotlightCard } from "./SpotlightCard";
 
 const FEATURED = [
