@@ -20,7 +20,6 @@ import { PageLoader } from "@/components/portfolio/PageLoader";
 import { StatusDock } from "@/components/portfolio/StatusDock";
 import { ShortcutsHelp } from "@/components/portfolio/ShortcutsHelp";
 import { HintRotator } from "@/components/portfolio/HintRotator";
-import { NowPlaying } from "@/components/portfolio/NowPlaying";
 
 import { useEffect } from "react";
 
