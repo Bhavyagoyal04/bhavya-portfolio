@@ -3,14 +3,12 @@ import { SpotlightCard } from "./SpotlightCard";
 
 
 const CERTS = [
-  "AWS Cloud Quest: Cloud Practitioner",
-  "Google Cloud Fundamentals",
-  "Prompt Design in Vertex AI",
-  "Responsible AI",
-  "AWS Cloud Quest: Cloud Practitioner",
-  "Google Cloud Fundamentals",
-  "Prompt Design in Vertex AI",
-  "Responsible AI",
+  { name: "AWS Cloud Quest: Cloud Practitioner", year: "2026" },
+  { name: "Google Cloud Fundamentals: Core Infrastructure", year: "2026" },
+  { name: "Prompt Design in Vertex AI", year: "2026" },
+  { name: "Generative AI & Responsible AI Badges", year: "2026" },
+  { name: "Amazon Connect Development Fundamentals", year: "2026" },
+  { name: "Full Stack Web Development (MERN) — Apna College", year: "2024" },
 ];
 
 export function Achievements() {
