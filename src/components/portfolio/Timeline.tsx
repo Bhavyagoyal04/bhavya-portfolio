@@ -7,8 +7,9 @@ const ITEMS = [
     role: "Summer Intern",
     period: "Jun 2026 – Present",
     points: [
-      "Built the centralized Xebia Exam Platform handling 5,000+ concurrent submissions.",
-      "Optimized the LMS backend, reducing API latency by 25%.",
+      "Architected a multi-tenant Xebia Exam Platform on Next.js handling 5,000+ concurrent test submissions across universities.",
+      "Engineered an AI-powered LMS and PDF Evaluation tool — cut API latency by 25% and hit 95% grading accuracy on document parsing.",
+      "Built full-stack features with React, Next.js, Tailwind, Node.js, MongoDB, PostgreSQL, FastAPI, WebRTC & Docker.",
     ],
     accent: "var(--electric)",
     glow: "var(--electric)",
@@ -16,10 +17,11 @@ const ITEMS = [
   {
     company: "Universia Space Technology Pvt. Ltd.",
     role: "Summer Intern",
-    period: "2025",
+    period: "Jun 2025 – Jul 2025",
     points: [
-      "Developed 5+ responsive front-end features shipped to production.",
-      "Reduced overall page load time by 20% through targeted optimizations.",
+      "Shipped 5+ responsive web features with React, JavaScript, HTML5, CSS3 and Tailwind CSS.",
+      "Built modular reusable components with client-side routing to streamline app state and navigation.",
+      "Reduced page load time by 20% through render-path optimization and asset minification.",
     ],
     accent: "var(--neon)",
     glow: "var(--neon)",
@@ -27,10 +29,11 @@ const ITEMS = [
   {
     company: "State Bank of India",
     role: "Summer Intern",
-    period: "2025",
+    period: "Jun 2025 – Jul 2025",
     points: [
-      "Evaluated weak loan accounts and proposed AI predictive models.",
-      "Improved NPA identification efficiency by 25%.",
+      "Evaluated performance metrics on weak loan accounts and produced comprehensive risk assessment reports.",
+      "Streamlined internal audit documentation workflows, cutting manual review time by ~15%.",
+      "Proposed AI-based predictive models that improved NPA identification efficiency by 25%.",
     ],
     accent: "var(--electric)",
     glow: "var(--electric)",
