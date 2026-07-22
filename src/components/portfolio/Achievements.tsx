@@ -3,14 +3,12 @@ import { SpotlightCard } from "./SpotlightCard";
 
 
 const CERTS = [
-  "AWS Cloud Quest: Cloud Practitioner",
-  "Google Cloud Fundamentals",
-  "Prompt Design in Vertex AI",
-  "Responsible AI",
-  "AWS Cloud Quest: Cloud Practitioner",
-  "Google Cloud Fundamentals",
-  "Prompt Design in Vertex AI",
-  "Responsible AI",
+  { name: "AWS Cloud Quest: Cloud Practitioner", year: "2026" },
+  { name: "Google Cloud Fundamentals: Core Infrastructure", year: "2026" },
+  { name: "Prompt Design in Vertex AI", year: "2026" },
+  { name: "Generative AI & Responsible AI Badges", year: "2026" },
+  { name: "Amazon Connect Development Fundamentals", year: "2026" },
+  { name: "Full Stack Web Development (MERN) — Apna College", year: "2024" },
 ];
 
 export function Achievements() {
@@ -36,9 +34,9 @@ export function Achievements() {
               className="flex items-center gap-3 rounded-full border border-border bg-card px-6 py-3 text-sm font-medium whitespace-nowrap"
             >
               <Award className="h-4 w-4 text-[var(--electric)]" />
-              {c}
+              {c.name}
               <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-mono uppercase text-muted-foreground">
-                2026
+                {c.year}
               </span>
             </div>
           ))}

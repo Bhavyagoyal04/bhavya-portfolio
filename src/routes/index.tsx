@@ -20,7 +20,6 @@ import { PageLoader } from "@/components/portfolio/PageLoader";
 import { StatusDock } from "@/components/portfolio/StatusDock";
 import { ShortcutsHelp } from "@/components/portfolio/ShortcutsHelp";
 import { HintRotator } from "@/components/portfolio/HintRotator";
-import { NowPlaying } from "@/components/portfolio/NowPlaying";
 
 import { useEffect } from "react";
 
@@ -68,7 +67,7 @@ function Index() {
       <main className="relative z-10">
         <Hero />
         <Reveal><Stats /></Reveal>
-        <Reveal><NowPlaying /></Reveal>
+        
         <Reveal><Timeline /></Reveal>
         <Reveal><Projects /></Reveal>
         <Reveal><Achievements /></Reveal>

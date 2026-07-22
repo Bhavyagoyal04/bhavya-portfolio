@@ -92,7 +92,7 @@ const CATEGORIES = [
 
 export function Stats() {
   const problems = useCountUp(700);
-  const rank = useCountUp(48);
+  const rank = useCountUp(44);
   const [active, setActive] = useState(0);
 
   return (
