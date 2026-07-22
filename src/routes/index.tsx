@@ -69,8 +69,6 @@ function Index() {
         <Reveal><Stats /></Reveal>
         <Reveal><Timeline /></Reveal>
         <Reveal><Projects /></Reveal>
-        <Reveal><Projects /></Reveal>
-        <Reveal><ContributionGrid /></Reveal>
         <Reveal><Achievements /></Reveal>
         <Reveal><Contact /></Reveal>
       </main>
