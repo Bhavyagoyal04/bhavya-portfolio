@@ -27,7 +27,7 @@ const ITEMS = [
   {
     company: "State Bank of India",
     role: "Summer Intern",
-    period: "2024",
+    period: "2025",
     points: [
       "Evaluated weak loan accounts and proposed AI predictive models.",
       "Improved NPA identification efficiency by 25%.",
