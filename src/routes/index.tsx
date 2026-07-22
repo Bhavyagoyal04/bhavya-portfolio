@@ -68,6 +68,7 @@ function Index() {
       <main className="relative z-10">
         <Hero />
         <Reveal><Stats /></Reveal>
+        <Reveal><NowPlaying /></Reveal>
         <Reveal><Timeline /></Reveal>
         <Reveal><Projects /></Reveal>
         <Reveal><Achievements /></Reveal>
