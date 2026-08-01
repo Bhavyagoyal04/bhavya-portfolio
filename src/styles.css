@@ -308,9 +308,9 @@
 /* Sticky stacked project cards */
 .sticky-card {
   position: sticky;
-  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-    opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 3.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 3.5s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: top center;
   will-change: transform, opacity, filter;
 }
@@ -321,10 +321,10 @@
   .sticky-card > * {
     animation: stack-recede linear both;
     animation-timeline: view();
-    animation-range: exit 0% exit 95%;
-    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-      filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation-range: exit 0% exit 98%;
+    transition: transform 3.5s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 3.5s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 3.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 @keyframes stack-recede {
