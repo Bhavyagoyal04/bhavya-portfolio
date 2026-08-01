@@ -22,6 +22,7 @@ import { ShortcutsHelp } from "@/components/portfolio/ShortcutsHelp";
 import { HintRotator } from "@/components/portfolio/HintRotator";
 
 import { useEffect } from "react";
+import { SmoothScroll } from "@/components/portfolio/SmoothScroll";
 
 export const Route = createFileRoute("/")({
   component: Index,
