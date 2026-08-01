@@ -14,18 +14,21 @@ export function SmoothScroll() {
     // Skip on touch devices where native momentum scrolling feels better.
     if (window.matchMedia("(pointer: coarse)").matches) return;
 
-    const ease = (t: number) => Math.min(1, 1 - Math.pow(2, -10 * t));
+    target.current = window.scrollY;
+    current.current = window.scrollY;
+
+    const LERP = 0.075; // lower = slower, more delayed glide
 
     const step = () => {
-      current.current += (target.current - current.current) * ease(0.18);
-      if (Math.abs(target.current - current.current) < 0.5) {
+      const diff = target.current - current.current;
+      if (Math.abs(diff) < 0.4) {
         current.current = target.current;
-      } else {
-        window.scrollTo(0, current.current);
-        raf.current = requestAnimationFrame(step);
+        raf.current = null; // idle until next input
         return;
       }
+      current.current += diff * LERP;
       window.scrollTo(0, current.current);
+      raf.current = requestAnimationFrame(step);
     };
 
     const launch = () => {
@@ -33,15 +36,24 @@ export function SmoothScroll() {
     };
 
     const onWheel = (e: WheelEvent) => {
+      if (e.ctrlKey) return;
+      // let scrollable inner elements (overflow containers) handle their own scroll
+      let el = e.target as HTMLElement | null;
+      while (el && el !== document.body && el !== document.documentElement) {
+        const style = getComputedStyle(el);
+        if (
+          /(auto|scroll)/.test(style.overflowY) &&
+          el.scrollHeight > el.clientHeight + 1
+        )
+          return;
+        el = el.parentElement;
+      }
       e.preventDefault();
       const max = document.documentElement.scrollHeight - window.innerHeight;
       target.current = Math.max(0, Math.min(max, target.current + e.deltaY));
-      // keep current in sync if far behind to avoid huge catch-up lag
-      if (Math.abs(target.current - current.current) > window.innerHeight * 2) {
-        current.current = target.current - Math.sign(e.deltaY) * window.innerHeight;
-      }
       launch();
     };
+
 
     const onKey = (e: KeyboardEvent) => {
       const code = e.code;
