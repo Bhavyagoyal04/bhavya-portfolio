@@ -22,6 +22,7 @@ import { ShortcutsHelp } from "@/components/portfolio/ShortcutsHelp";
 import { HintRotator } from "@/components/portfolio/HintRotator";
 
 import { useEffect } from "react";
+import { SmoothScroll } from "@/components/portfolio/SmoothScroll";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -56,6 +57,7 @@ function Index() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      <SmoothScroll />
       <PageLoader />
       <MeshBackground />
       <div className="noise-overlay pointer-events-none fixed inset-0 z-[60]" />
