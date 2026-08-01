@@ -26,8 +26,8 @@ export function CommandPalette({ onConfetti }: { onConfetti: () => void }) {
     { label: "Achievements", icon: Award, action: () => go("achievements"), keywords: "certifications" },
     { label: "Contact", icon: Send, action: () => go("contact"), keywords: "email message" },
     { label: "Email Bhavya", hint: "mailto", icon: Mail, action: () => { window.location.href = "mailto:bhavyagoyal30122005@gmail.com"; setOpen(false); } },
-    { label: "GitHub", hint: "external", icon: Github, action: () => { window.open("https://github.com", "_blank"); setOpen(false); } },
-    { label: "LinkedIn", hint: "external", icon: Linkedin, action: () => { window.open("https://linkedin.com", "_blank"); setOpen(false); } },
+    { label: "GitHub", hint: "external", icon: Github, action: () => { window.open("https://github.com/Bhavyagoyal04", "_blank"); setOpen(false); } },
+    { label: "LinkedIn", hint: "external", icon: Linkedin, action: () => { window.open("https://www.linkedin.com/in/bhavya-goyal30/", "_blank"); setOpen(false); } },
     { label: "Launch confetti 🎉", hint: "fun", icon: Sparkles, action: () => { onConfetti(); setOpen(false); } },
   ];
 
