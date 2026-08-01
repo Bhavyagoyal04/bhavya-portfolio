@@ -57,6 +57,7 @@ function Index() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      <SmoothScroll />
       <PageLoader />
       <MeshBackground />
       <div className="noise-overlay pointer-events-none fixed inset-0 z-[60]" />
