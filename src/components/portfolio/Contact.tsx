@@ -107,10 +107,10 @@ export function Contact() {
               <Phone className="h-4 w-4 text-[var(--neon)] transition group-hover:scale-110" />
               +91 74540 94320
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="group flex items-center gap-2 transition hover:text-foreground">
+            <a href="https://github.com/Bhavyagoyal04" target="_blank" rel="noreferrer" className="group flex items-center gap-2 transition hover:text-foreground">
               <Github className="h-4 w-4 transition group-hover:scale-110" /> GitHub
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="group flex items-center gap-2 transition hover:text-foreground">
+            <a href="https://www.linkedin.com/in/bhavya-goyal30/" target="_blank" rel="noreferrer" className="group flex items-center gap-2 transition hover:text-foreground">
               <Linkedin className="h-4 w-4 transition group-hover:scale-110" /> LinkedIn
             </a>
           </div>
